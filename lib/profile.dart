@@ -28,7 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
         profession: "Developer",
         avatar: "assets/friend4.png"),
   ];
-  
+
   List<String> mediaList = [
     'assets/Rectangle6.png',
     "assets/Rectangle7.png",
@@ -132,65 +132,88 @@ class _ProfilePageState extends State<ProfilePage> {
             //----------Friends----------
 
             SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return _buildFriendCards(friendsList[index]);
-                },
-                childCount: friendsList.length,
-                  )),
+                delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return _buildFriendCards(friendsList[index]);
+              },
+              childCount: friendsList.length,
+            )),
 
             SliverToBoxAdapter(
                 child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          child: Row(
-                            children: [
-                              Text("ADD FRIEND", style: TextStyle(fontSize: 16.0, color: Colors.black)),
-                              Icon(Icons.add, color: Colors.black),
-                            ],
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            side: BorderSide(
-                              color: Colors.grey,
-                              width: 0.5,
-                            ),
-                            minimumSize: Size(350.0, 40.0),
-                            onSurface: Colors.white,
-                          ),
+                    ElevatedButton(
+                      child: Row(
+                        children: [
+                          Text("ADD FRIEND",
+                              style: TextStyle(
+                                  fontSize: 16.0, color: Colors.black)),
+                          Icon(Icons.add, color: Colors.black),
+                        ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(
+                          color: Colors.grey,
+                          width: 0.5,
                         ),
-                      ],
-                    ),
-                    Divider(
-                      color: Colors.grey,
-                      height: 48.0,
-                      indent: 18.0,
-                      endIndent: 18.0,
+                        minimumSize: Size(350.0, 40.0),
+                        onSurface: Colors.white,
+                      ),
                     ),
                   ],
-                )
-            ),
+                ),
+                Divider(
+                  color: Colors.grey,
+                  height: 48.0,
+                  indent: 18.0,
+                  endIndent: 18.0,
+                ),
+              ],
+            )),
 
             //--------My Media------
-
-            SliverGrid(
-                delegate: SliverChildBuilderDelegate(
-                    (context, index){
-                      return Container(
-                        height: 95,
-                        margin: EdgeInsets.all(12.0),
-                        decoration: BoxDecoration(
-                        //  borderRadius: ,
-                        )
-                      );
-                    }, childCount: 9,
-                ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-
-                ))
+            SliverToBoxAdapter(
+               child: Container(
+                  height: 400.0,
+                  child: GridView.builder(
+                      itemCount: mediaList.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                      ),
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: EdgeInsets.all(14.0),
+                          child: Container(
+                            height: 95.0,
+                            width: 95.0,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(mediaList[index]),
+                                  fit: BoxFit.cover,
+                                )
+                            ),
+                          ),
+                        );
+                      }),
+                )
+            ),
+            SliverToBoxAdapter(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                      child: Text("DELETE"),
+                       onPressed: (){},
+                  ),
+                  ElevatedButton(
+                      onPressed: (){},
+                      child: Text("ADD"))
+                ],
+              ),
+            )
           ],
         ));
   }
@@ -212,33 +235,32 @@ Card _buildFriendCards(Friend friend) {
           Expanded(
             flex: 1,
             child: Container(
-                margin: EdgeInsets.fromLTRB(16.0, 5.0, 10.0, 5.0),
-                child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                friend.name,
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              Text(
-                                friend.profession,
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                ),
-                              ),
-                            ],
+              margin: EdgeInsets.fromLTRB(16.0, 5.0, 10.0, 5.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    friend.name,
+                    style: TextStyle(
+                      fontSize: 16.0,
                     ),
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    friend.profession,
+                    style: TextStyle(
+                      fontSize: 14.0,
+                    ),
+                  ),
+                ],
               ),
+            ),
           ),
           Icon(Icons.close),
         ],
       ),
     ),
   );
-
 }
