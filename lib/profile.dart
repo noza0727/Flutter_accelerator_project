@@ -183,8 +183,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         margin: EdgeInsets.all(12.0),
                         decoration: BoxDecoration(
                         //  borderRadius: ,
-                        ),
-                        git foregroundDecoration: ,
+                        )
                       );
                     }, childCount: 9,
                 ),
