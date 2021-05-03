@@ -1,6 +1,6 @@
-import 'package:accelerator_flutter/profile.dart';
+import 'package:accelerator_flutter/profilePage.dart';
 import 'package:flutter/material.dart';
-import 'package:accelerator_flutter/home.dart';
+import 'package:accelerator_flutter/homePage.dart';
 
 void main() => runApp(MaterialApp(
   initialRoute: '/profile',

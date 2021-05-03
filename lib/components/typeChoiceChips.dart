@@ -43,7 +43,7 @@ class _TypeChoiceChipsState extends State<TypeChoiceChips> {
                   selectedColor: AppColors.pinkish,
                   backgroundColor: AppColors.whitishBG,
                   labelStyle: TextStyle(
-                    color: Colors.grey,
+                    color: AppColors.grey,
                   ),
                 );
               },

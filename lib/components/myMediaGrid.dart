@@ -1,3 +1,4 @@
+import 'package:accelerator_flutter/utils/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,7 @@ class _MyMediaGridState extends State<MyMediaGrid> {
                               child: RawMaterialButton(
                                 onPressed: () {},
                                 fillColor: Colors.white,
-                                child: Icon(Icons.cancel_rounded, color: Colors.red[200], size: 25),
+                                child: Icon(Icons.cancel_rounded, color: AppColors.lightRed, size: 25),
                                 shape: CircleBorder(),
                               ),
                             ),

@@ -1,3 +1,4 @@
+import 'package:accelerator_flutter/utils/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'components/components.dart';
@@ -22,20 +23,20 @@ class _ProfilePageState extends State<ProfilePage> {
           title: Text(
             'Profile',
             style: TextStyle(
-              color: Colors.black,
+              color: AppColors.black,
             ),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.white,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_outlined),
-            color: Colors.black,
+            color: AppColors.black,
             iconSize: 30.0,
             onPressed: () {},
           ),
           actions: <Widget>[
             IconButton(
                 icon: Icon(Icons.more_vert),
-                color: Colors.black,
+                color: AppColors.black,
                 iconSize: 30.0,
                 onPressed: () {})
           ],
@@ -69,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         Divider(
-                          color: Colors.grey,
+                          color: AppColors.grey,
                           height: 48.0,
                           indent: 18.0,
                           endIndent: 18.0,
@@ -78,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         InstructionText(text: "Select Type"),
                         TypeChoiceChips(),
                         Divider(
-                          color: Colors.grey,
+                          color: AppColors.grey,
                           height: 48.0,
                           indent: 18.0,
                           endIndent: 18.0,
@@ -100,23 +101,23 @@ class _ProfilePageState extends State<ProfilePage> {
                                 children: [
                                   Text("ADD FRIEND",
                                       style: TextStyle(
-                                          fontSize: 16.0, color: Colors.black)),
-                                  Icon(Icons.add, color: Colors.black),
+                                          fontSize: 16.0, color: AppColors.black)),
+                                  Icon(Icons.add, color: AppColors.black),
                                 ],
                               ),
                               style: ElevatedButton.styleFrom(
                                 side: BorderSide(
-                                  color: Colors.grey,
+                                  color: AppColors.grey,
                                   width: 0.5,
                                 ),
                                 minimumSize: Size(350.0, 40.0),
-                                onSurface: Colors.white,
+                                onSurface: AppColors.white,
                               ),
                             ),
                           ],
                         ),
                         Divider(
-                          color: Colors.grey,
+                          color: AppColors.grey,
                           height: 48.0,
                           indent: 18.0,
                           endIndent: 18.0,
@@ -137,10 +138,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         ElevatedButton(
                           child: Text(
                             "DELETE",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: AppColors.white),
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.deepPurpleAccent,
+                            primary: AppColors.deepPurlple,
                             minimumSize: Size(180.0, 35.0),
                           ),
                           onPressed: () {},
@@ -149,14 +150,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         ElevatedButton(
                           child: Text(
                             "ADD",
-                            style: TextStyle(color: Colors.deepPurpleAccent),
+                            style: TextStyle(color: AppColors.deepPurlple),
                           ),
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               minimumSize: Size(180.0, 35.0),
-                              primary: Colors.white,
+                              primary: AppColors.white,
                               side: BorderSide(
-                                  color: Colors.grey,
+                                  color: AppColors.grey,
                                   width: 1.0)
                           ),
                           onPressed: () {},

@@ -1,3 +1,4 @@
+import 'package:accelerator_flutter/utils/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,8 +29,8 @@ class _AvatarImageState extends State<AvatarImage> {
               right: -2,
               child: RawMaterialButton(
                 onPressed: () {},
-                fillColor: Colors.deepPurpleAccent,
-                child: Icon(Icons.add, color: Colors.white),
+                fillColor: AppColors.deepPurlple,
+                child: Icon(Icons.add, color: AppColors.white),
                 padding: EdgeInsets.all(10.0),
                 shape: CircleBorder(),
               )),
