@@ -1,3 +1,4 @@
+import 'package:accelerator_flutter/utils/app_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class InstructionText extends StatelessWidget {
       padding: EdgeInsets.only(left: 16.0, bottom: 12.0),
       child: Text(
         text,
-        style: TextStyle(color: Colors.black, fontSize: 16.0),
+        style: AppStyles.profileInstructionsTextStyle,
       ),
     );
   }

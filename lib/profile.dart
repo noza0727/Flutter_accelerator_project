@@ -1,8 +1,6 @@
-import 'package:accelerator_flutter/objects/Freind.dart';
-import 'package:accelerator_flutter/statelessWidgets.dart';
-import 'package:accelerator_flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'components/components.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -10,36 +8,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  List friendsList = [
-    Friend(
-        name: "Corey George",
-        profession: "Developer",
-        avatar: "assets/friend1.png"),
-    Friend(
-        name: "Ahmad Vetrovs",
-        profession: "Developer",
-        avatar: "assets/friend2.png"),
-    Friend(
-        name: "Christopher Workman",
-        profession: "Developer",
-        avatar: "assets/friend3.png"),
-    Friend(
-        name: "Tiana Korsgaard",
-        profession: "Developer",
-        avatar: "assets/friend4.png"),
-  ];
-
-  List<String> mediaList = [
-    'assets/Rectangle6.png',
-    "assets/Rectangle7.png",
-    "assets/Rectangle8.png",
-    "assets/Rectangle9.png",
-    "assets/Rectangle10.png",
-    "assets/Rectangle11.png",
-    "assets/Rectangle12.png",
-    "assets/Rectangle13.png",
-    "assets/Rectangle14.png",
-  ];
 
   @override
   void initState() {
@@ -73,194 +41,132 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
         body: CustomScrollView(
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 24.0,
-                    ),
-                    CircleAvatar(
-                      radius: 50.0,
-                      //backgroundImage: AssetImage('assets/avatar-girl.png'),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50.0),
-                        child: Image.asset('assets/avatar-girl.png'),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 24.0,
-                    ),
-                    Text(
-                      "Tiana Rosser",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 4.0,
-                    ),
-                    Text(
-                      "Developer",
-                      style: TextStyle(
-                        fontSize: 12.0,
-                      ),
-                    ),
-                    Divider(
-                      color: Colors.grey,
-                      height: 48.0,
-                      indent: 18.0,
-                      endIndent: 18.0,
-                    ),
-
-                    //-------------Select Type------------
-
-                    InstructionText(text: "Select Type"),
-                    TypeChoiceChips(),
-                    Divider(
-                      color: Colors.grey,
-                      height: 48.0,
-                      indent: 18.0,
-                      endIndent: 18.0,
-                    ),
-
-                    InstructionText(text: "Friends"),
-                  ]),
-            ),
-
-            //----------Friends----------
-
-            SliverList(
-                delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return _buildFriendCards(friendsList[index]);
-              },
-              childCount: friendsList.length,
-            )),
-
-            SliverToBoxAdapter(
-                child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      child: Row(
-                        children: [
-                          Text("ADD FRIEND",
-                              style: TextStyle(
-                                  fontSize: 16.0, color: Colors.black)),
-                          Icon(Icons.add, color: Colors.black),
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        side: BorderSide(
-                          color: Colors.grey,
-                          width: 0.5,
+              slivers: <Widget>[
+                SliverToBoxAdapter(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 24.0,
                         ),
-                        minimumSize: Size(350.0, 40.0),
-                        onSurface: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(
-                  color: Colors.grey,
-                  height: 48.0,
-                  indent: 18.0,
-                  endIndent: 18.0,
-                ),
-              ],
-            )),
-
-            //--------My Media------
-            SliverToBoxAdapter(
-               child: Container(
-                  height: 400.0,
-                  child: GridView.builder(
-                      itemCount: mediaList.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                      ),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: EdgeInsets.all(14.0),
-                          child: Container(
-                            height: 95.0,
-                            width: 95.0,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(mediaList[index]),
-                                  fit: BoxFit.cover,
-                                )
-                            ),
+                        AvatarImage(),
+                        SizedBox(
+                          height: 24.0,
+                        ),
+                        Text(
+                          "Tiana Rosser",
+                          style: TextStyle(
+                            fontSize: 16.0,
                           ),
-                        );
-                      }),
-                )
-            ),
-            SliverToBoxAdapter(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ElevatedButton(
-                      child: Text("DELETE"),
-                       onPressed: (){},
-                  ),
-                  ElevatedButton(
-                      onPressed: (){},
-                      child: Text("ADD"))
-                ],
-              ),
-            )
-          ],
-        ));
-  }
-}
+                        ),
+                        SizedBox(
+                          height: 4.0,
+                        ),
+                        Text(
+                          "Developer",
+                          style: TextStyle(
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                          height: 48.0,
+                          indent: 18.0,
+                          endIndent: 18.0,
+                        ),
+                        //-------------Select Type------------
+                        InstructionText(text: "Select Type"),
+                        TypeChoiceChips(),
+                        Divider(
+                          color: Colors.grey,
+                          height: 48.0,
+                          indent: 18.0,
+                          endIndent: 18.0,
+                        ),
+                        InstructionText(text: "Friends"),
+                      ]),
+                ),
 
-Card _buildFriendCards(Friend friend) {
-  return Card(
-    margin: EdgeInsets.all(0.0),
-    elevation: 0.0,
-    shadowColor: null,
-    child: Container(
-      padding: EdgeInsets.fromLTRB(16.0, 16.0, 24.0, 16.0),
-      child: Row(
-        children: <Widget>[
-          CircleAvatar(
-            radius: 20.0,
-            child: Image.asset(friend.avatar),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              margin: EdgeInsets.fromLTRB(16.0, 5.0, 10.0, 5.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    friend.name,
-                    style: TextStyle(
-                      fontSize: 16.0,
+                //----------Friends----------
+                SliverToBoxAdapter(child: FriendsList()),
+                SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              child: Row(
+                                children: [
+                                  Text("ADD FRIEND",
+                                      style: TextStyle(
+                                          fontSize: 16.0, color: Colors.black)),
+                                  Icon(Icons.add, color: Colors.black),
+                                ],
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.grey,
+                                  width: 0.5,
+                                ),
+                                minimumSize: Size(350.0, 40.0),
+                                onSurface: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                          height: 48.0,
+                          indent: 18.0,
+                          endIndent: 18.0,
+                        ),
+
+                        InstructionText(text: "My Media"),
+                      ],
+                    )),
+
+                //--------My Media------
+                SliverToBoxAdapter(child: MyMediaGrid()),
+                SliverToBoxAdapter(
+                  child: Container(
+                    padding: EdgeInsets.only(bottom: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        ElevatedButton(
+                          child: Text(
+                            "DELETE",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.deepPurpleAccent,
+                            minimumSize: Size(180.0, 35.0),
+                          ),
+                          onPressed: () {},
+                        ),
+                        SizedBox(width: 16.0),
+                        ElevatedButton(
+                          child: Text(
+                            "ADD",
+                            style: TextStyle(color: Colors.deepPurpleAccent),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              minimumSize: Size(180.0, 35.0),
+                              primary: Colors.white,
+                              side: BorderSide(
+                                  color: Colors.grey,
+                                  width: 1.0)
+                          ),
+                          onPressed: () {},
+                        )
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 5.0,
-                  ),
-                  Text(
-                    friend.profession,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                    ),
-                  ),
-                ],
-              ),
+                )
+              ],
             ),
-          ),
-          Icon(Icons.close),
-        ],
-      ),
-    ),
-  );
+    );
+  }
 }
